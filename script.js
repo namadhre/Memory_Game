@@ -1,4 +1,4 @@
-const gameContainer = document.getElementsById("game");
+const gameContainer = document.getElementById("game");
 
 const COLORS = [
   "red",
@@ -46,6 +46,10 @@ function createDivsForColors(colorArray) {
     // create a new div
     const newDiv = document.createElement("div");
 
+    newDiv.innerHTML = '<i class="fa-solid fa-question"></i>';
+
+    newDiv.style.backgroundColor = 'white';
+
     // give it a class attribute for the value we are looping over
     newDiv.classList.add(color);
 
@@ -58,9 +62,56 @@ function createDivsForColors(colorArray) {
 }
 
 // TODO: Implement this function!
+let count = 0;
+let firstClick = "";
+let secondClick = "";
+let moves = 0;
+let sucess = 0;
+
 function handleCardClick(event) {
   // you can use event.target to see which element was clicked
-  console.log("you clicked",event.target);
+  let movesElement = document.getElementById("moves");
+  let mainContainer = document.querySelector('.main-container');
+  let sucessElement = document.querySelector('.success-container');
+  let click = event.target;
+  if (count < 2) {
+    if (click.style.backgroundColor === "white") {
+      moves++;
+      movesElement.textContent = `Moves: ${moves}`;
+      if (count === 0) {
+        firstClick = event.target;
+        count++;
+      } else {
+        secondClick = event.target;
+        count++;
+      }
+      if (firstClick.className === secondClick.className) {
+        firstClick.style.backgroundColor = event.target.className;
+        firstClick.innerHTML = "";
+        secondClick.style.backgroundColor = event.target.className;
+        secondClick.innerHTML = "";
+        sucess++;
+        count = 0;
+      } else {
+        click.innerHTML = "";
+        click.style.backgroundColor = event.target.className;
+        if (count === 2) {
+          setTimeout(() => {
+            click.style.backgroundColor = 'white';
+            click.innerHTML = '<i class="fa-solid fa-question"></i>';
+            firstClick.style.backgroundColor = 'white';
+            firstClick.innerHTML = '<i class="fa-solid fa-question"></i>';
+            count = 0;
+          }, 1 * 1000);
+          secondClick = "";
+        }
+      }
+      if (sucess === 5) {
+        mainContainer.style.display = 'none';
+        sucessElement.style.display = 'block';
+      }
+    }
+  }
 }
 
 // when the DOM loads
