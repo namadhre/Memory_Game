@@ -1,7 +1,231 @@
- #game div {
-  border: 1px solid black;
-  width: 15%;
-  height: 200px;
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* custom style */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: black;
+}
+
+.body-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 98vh;
+}
+
+#game div {
+  border: 1px solid rgb(153, 34, 54);
+  width: 100px;
+  height: 100px;
   margin: 10px;
   display: inline-block;
-} 
+}
+
+.main-container h1,
+h2 {
+  margin-right: 3rem;
+  color: white;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.game-container {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  width: 602px;
+
+}
+
+.success-container {
+  display: none;
+}
+
+.fa-solid {
+  font-size: 20px;
+  color: green;
+}
+
+a {
+  text-decoration: none;
+}
+
+.success-container h3 {
+  color: green;
+  margin: 1rem 0;
+  font-size: 50px;
+}
+
+button {
+  height: 35px;
+  width: 100px;
+  font-size: 20px;
+}
+
+.success-wrap-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  font-size: 30px;
+  margin: 1rem 0;
+}
+
+
+@media screen and (max-width: 480px) {
+  body {
+    height: 100%;
+    width: 100%;
+  }
+
+  .game-container {
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+  }
+}
