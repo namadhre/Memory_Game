@@ -176,7 +176,6 @@ h2 {
   flex-flow: row wrap;
   align-items: center;
   width: 602px;
-
 }
 
 .success-container {
@@ -199,9 +198,10 @@ a {
 }
 
 button {
-  height: 35px;
-  width: 100px;
+  height: 40px;
+  width: 150px;
   font-size: 20px;
+  border-radius: 6px;
 }
 
 .success-wrap-container {
