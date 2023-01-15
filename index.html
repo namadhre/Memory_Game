@@ -9,7 +9,7 @@
     integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <title>Memory Game!</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="temp.css" />
 </head>
 
 <body>
@@ -17,17 +17,24 @@
     <div class="success-container">
       <div class="success-wrap-container">
         <h3>Game Over</h3>
+        <h2 id="total-score"></h2>
         <a href="./index.html"><button><i class="fa-solid fa-play"></i>Try again</button></a>
       </div>
     </div>
     <div class="main-container">
-      <h1>Memory Game!</h1>
-      <h2 id="moves">Moves: 0</h2>
-      <div id="game" class="game-container"></div>
+      <div class="title-container">
+        <h1>Memory Game!</h1>
+        <div class="board-container">
+          <h2 id="moves">Moves: 0</h2>
+          <h2 id="score">Score: 0</h2>
+        </div>
+      </div>
+      <div id="game" class="game-container">
+      </div>
     </div>
   </div>
 
-  <script src="script.js"></script>
+  <script src="temp.cjs"></script>
 </body>
 
 </html>
