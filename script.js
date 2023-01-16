@@ -20,6 +20,13 @@ const easyButton = document.getElementById('easy-level');
 const mediumLevel = document.getElementById('medium-level');
 const hardLevel = document.getElementById('hard-level');
 
+let count = 0;
+let firstClick = "";
+let secondClick = "";
+let moves = 0;
+let maxSuccess;
+let success = 0;
+
 
 function handleSrart(event) {
   event.target.parentElement.style.display = 'none';
@@ -44,7 +51,8 @@ function handleEasyLevel(event) {
     pathImage5,
     pathImage6,
     pathImage6
-  ]
+  ];
+  maxSuccess = 6;
   let shuffledImages = shuffle(IMAGES);
   createDivsForColors(shuffledImages);
 }
@@ -72,6 +80,7 @@ function handleMediumLevel(event) {
     pathImage8,
     pathImage8
   ];
+  maxSuccess = 8
   let shuffledImages = shuffle(IMAGES);
   createDivsForColors(shuffledImages);
 }
@@ -107,6 +116,7 @@ function handleHardLevel(event) {
     pathImage12,
     pathImage12
   ];
+  maxSuccess = 12;
   let shuffledImages = shuffle(IMAGES);
   createDivsForColors(shuffledImages);
 }
@@ -136,7 +146,6 @@ function shuffle(array) {
 
   return array;
 }
-
 // this function loops over the array of colors
 // it creates a new div and gives it a class with the value of the color
 // it also adds an event listener for a click for each card
@@ -171,11 +180,6 @@ function createDivsForColors(imagesArray) {
 }
 
 // TODO: Implement this function!
-let count = 0;
-let firstClick = "";
-let secondClick = "";
-let moves = 0;
-let success = 0;
 
 function handleCardClick() {
   let highScore = document.getElementById('high-score');
@@ -215,7 +219,7 @@ function handleCardClick() {
         }
       }
       scoreCard.textContent = `Score: ${Math.round((success / (moves / 2)) * 100)}`;
-      if (success === 12) {
+      if (success === maxSuccess) {
         mainContainer.style.display = 'none';
         successElement.style.display = 'block';
         let finalScore = Math.round((success / (moves / 2)) * 100);
