@@ -162,22 +162,23 @@ function handleCardClick() {
         totalScore.textContent = `Total Score: ${finalScore}`;
         let newHighScore = updateLocalStorage(finalScore);
         highScore.textContent = `High Score: ${newHighScore}`;
-        console.log('hello')
       }
     }
   }
 }
 
 function updateLocalStorage(finalScore) {
+  let newHighScore;
   if (localStorage.getItem('high_score') === null) {
     localStorage.setItem('high_score', finalScore);
+    newHighScore = finalScore;
   } else {
-    let highScore = localStorage.getItem('high_score')
-    if (highScore < finalScore) {
-      localStorage.setItem('high_score', finalScore)
+    newHighScore = localStorage.getItem('high_score')
+    if (newHighScore < finalScore) {
+      localStorage.setItem('high_score', newHighScore);
     }
   }
-  return localStorage.getItem('high_score');
+  return newHighScore;
 }
 
 // when the DOM loads
