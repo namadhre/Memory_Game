@@ -5,17 +5,18 @@
 }
 
 body {
+  background-image: url('gifs/04.jpg');
+  background-size: 100% 100%;
   background-color: black;
   height: 100vh;
   display: flex;
 }
 
 .body-container {
-  border: 1px solid black;
   width: 100%;
 }
 
-.start-container{
+.start-container {
   width: 100%;
   height: 100%;
   display: flex;
@@ -24,7 +25,7 @@ body {
   align-items: center;
 }
 
-.start-container h1{
+.start-container h1 {
   text-align: center;
 }
 
@@ -35,14 +36,15 @@ body {
   justify-content: space-between;
 }
 
-#reset {
+#restart-game {
   width: fit-content;
   height: fit-content;
   margin-bottom: 0.5rem;
   font-size: 20px;
+  border-radius: 6px;
 }
 
-.success-container h4{
+.success-container h4 {
   color: white;
   margin: 1rem;
 }
@@ -55,14 +57,14 @@ body {
 
 .game-container {
   width: 800px;
-  height: 800px;
+  height: 700px;
   margin: auto;
   display: flex;
   flex-wrap: wrap;
   perspective: 1000px;
 }
 
-.select-level{
+.select-level {
   height: 95vh;
   display: none;
   justify-content: space-around;
@@ -70,14 +72,15 @@ body {
 
 }
 
-.title-container{
+.title-container {
   color: white;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.board-container{
+
+.board-container {
   width: 40%;
 }
 
@@ -89,7 +92,6 @@ body {
   transform: scale(1);
   transform-style: preserve-3d;
   transition: transform .5s;
-  border: 1px solid red;
 }
 
 .memory-card:active {
@@ -115,6 +117,13 @@ body {
   transform: rotateY(180deg);
 }
 
+small {
+  color: white;
+}
+
+.body-container h1 {
+  color: white;
+}
 
 .success-container {
   display: none;
@@ -143,7 +152,7 @@ button {
   border-radius: 6px;
 }
 
-.success-container h2{
+.success-container h2 {
   color: white;
 
 }
@@ -156,46 +165,51 @@ button {
   justify-content: center;
 }
 
-h1 {
+.body-container button {
+  cursor: pointer;
+}
+
+.main-container h1 {
   font-size: 30px;
   margin: 1rem 0;
-  color: white;
+  color: black;
 }
 
 
 @media screen and (max-width: 850px) {
   .game-container {
-      width: 100%;
-      height: 700px;
-      margin: auto;
-      display: flex;
-      flex-wrap: wrap;
-      perspective: 1000px;
-      /* border: 1px solid green; */
-  }
-  .main-container h1{
-      font-size: 20px;
-  }
-  .main-container h2{
-      font-size: 15px;
-  }
-  .title-container{
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-  }
-  .board-container{
-      width: 80%;
-  }
-  #reset{
-      font-size: 15px;
+    width: 100%;
+    height: 700px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    perspective: 1000px;
   }
 
-  #restart-game{
+  .main-container h1 {
+    font-size: 20px;
+  }
+
+  .main-container h2 {
+    font-size: 15px;
+  }
+
+  .title-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .board-container {
+    width: 80%;
+  }
+
+  #restart-game {
     width: fit-content;
     font-size: small;
     height: fit-content;
+    cursor: pointer;
   }
 
   .select-level {
@@ -207,34 +221,41 @@ h1 {
 
 @media screen and (max-width: 450px) {
   .game-container {
-      width: 100%;
-      height: 600px;
-      margin: auto;
-      display: flex;
-      flex-wrap: wrap;
-      perspective: 1000px;
-      /* border: 1px solid green; */
-  }
-  .main-container h1{
-      font-size: 20px;
-  }
-  .main-container h2{
-      font-size: 15px;
-  }
-  .title-container{
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-  }
-  .board-container{
-      width: 80%;
-  }
-  #reset{
-      font-size: 15px;
+    margin-top: 20rem;
+    width: 100%;
+    height: 600px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    perspective: 1000px;
   }
 
-  #restart-game{
+  .main-container h1 {
+    font-size: 20px;
+    /* color: white; */
+  }
+
+  .main-container h2 {
+    font-size: 15px;
+    color: white;
+  }
+
+  .title-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .board-container {
+    width: 80%;
+  }
+
+  #reset {
+    font-size: 15px;
+  }
+
+  #restart-game {
     width: fit-content;
     font-size: small;
     height: fit-content;
