@@ -199,4 +199,9 @@ h1 {
     height: fit-content;
   }
 
+  .select-level {
+    display: flex;
+    flex-direction: column;
+  }
+
 }
