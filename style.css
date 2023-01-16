@@ -6,6 +6,7 @@
 
 body {
   background-image: url('gifs/background_image.jpg');
+  background-repeat: no-repeat;
   background-size: 100% 100%;
   background-color: black;
   height: 100vh;
