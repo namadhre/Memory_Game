@@ -1,141 +1,3 @@
-/* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
-*/
-
-html,
-body,
-div,
-span,
-applet,
-object,
-iframe,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-blockquote,
-pre,
-a,
-abbr,
-acronym,
-address,
-big,
-cite,
-code,
-del,
-dfn,
-em,
-img,
-ins,
-kbd,
-q,
-s,
-samp,
-small,
-strike,
-strong,
-sub,
-sup,
-tt,
-var,
-b,
-u,
-i,
-center,
-dl,
-dt,
-dd,
-ol,
-ul,
-li,
-fieldset,
-form,
-label,
-legend,
-table,
-caption,
-tbody,
-tfoot,
-thead,
-tr,
-th,
-td,
-article,
-aside,
-canvas,
-details,
-embed,
-figure,
-figcaption,
-footer,
-header,
-hgroup,
-menu,
-nav,
-output,
-ruby,
-section,
-summary,
-time,
-mark,
-audio,
-video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
-}
-
-/* HTML5 display-role reset for older browsers */
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-menu,
-nav,
-section {
-  display: block;
-}
-
-body {
-  line-height: 1;
-}
-
-ol,
-ul {
-  list-style: none;
-}
-
-blockquote,
-q {
-  quotes: none;
-}
-
-blockquote:before,
-blockquote:after,
-q:before,
-q:after {
-  content: '';
-  content: none;
-}
-
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-
-/* custom style */
-
 * {
   padding: 0;
   margin: 0;
@@ -153,11 +15,31 @@ body {
   width: 100%;
 }
 
-
-.main-container {
+.start-container{
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
+}
+
+.start-container h1{
+  text-align: center;
+}
+
+.main-container {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#reset {
+  width: fit-content;
+  height: fit-content;
+  margin-bottom: 0.5rem;
+  font-size: 20px;
 }
 
 .board-container {
@@ -183,7 +65,7 @@ body {
   align-items: center;
 }
 .board-container{
-  width: 30%;
+  width: 40%;
 }
 
 .memory-card {
@@ -224,7 +106,11 @@ body {
 .success-container {
   display: none;
   height: 100%;
-  border: 1px solid red;
+}
+
+.fa-solid {
+  font-size: 20px;
+  color: green;
 }
 
 a {
@@ -264,7 +150,7 @@ h1 {
 }
 
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 500px) {
   .game-container {
       width: 100%;
       height: 730px;
@@ -290,6 +176,15 @@ h1 {
   .board-container{
       width: 80%;
   }
+  #reset{
+      font-size: 15px;
+  }
 
+}
+
+@media screen and (max-width: 850px) {
+  .board-container{
+      width: 60%;
+  }
 }
 
