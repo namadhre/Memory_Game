@@ -12,8 +12,8 @@ const pathImage11 = 'gifs/11.gif';
 const pathImage12 = 'gifs/12.gif';
 const QuestionMarkImagePath = 'gifs/images.png';
 
-const gameContainer = document.getElementById("game");
-const startButton = document.getElementById("start-button");
+const gameContainer = document.getElementById('game');
+const startButton = document.getElementById('start-button');
 const mainContainer = document.querySelector('.main-container');
 const selectLevel = document.querySelector('.select-level');
 const easyButton = document.getElementById('easy-level');
@@ -21,8 +21,8 @@ const mediumLevel = document.getElementById('medium-level');
 const hardLevel = document.getElementById('hard-level');
 
 let count = 0;
-let firstClick = "";
-let secondClick = "";
+let firstClick = '';
+let secondClick = '';
 let moves = 0;
 let maxSuccess;
 let success = 0;
@@ -154,12 +154,12 @@ function createDivsForColors(imagesArray) {
 
   for (let image of imagesArray) {
     // create a new div
-    const newDiv = document.createElement("div");
-    const forntFace = document.createElement("img");
-    const backFace = document.createElement("img");
+    const newDiv = document.createElement('div');
+    const forntFace = document.createElement('img');
+    const backFace = document.createElement('img');
 
-    forntFace.classList.add("front-face");
-    backFace.classList.add("back-face");
+    forntFace.classList.add('front-face');
+    backFace.classList.add('back-face');
 
     forntFace.src = image;
     backFace.src = QuestionMarkImagePath;
@@ -167,12 +167,12 @@ function createDivsForColors(imagesArray) {
 
     // give it a class attribute for the value we are looping over
     newDiv.classList.add(image.slice(0, 7).replace('/', '-').replace('.', ''));
-    newDiv.classList.add("memory-card");
+    newDiv.classList.add('memory-card');
     newDiv.dataset.imageId = 0;
     newDiv.append(forntFace, backFace);
 
     // call a function handleCardClick when a div is clicked on
-    newDiv.addEventListener("click", handleCardClick);
+    newDiv.addEventListener('click', handleCardClick);
 
     // append the div to the element with an id of game
     gameContainer.append(newDiv);
@@ -183,14 +183,14 @@ function createDivsForColors(imagesArray) {
 
 function handleCardClick() {
   let highScore = document.getElementById('high-score');
-  let movesElement = document.getElementById("moves");
+  let movesElement = document.getElementById('moves');
   let successElement = document.querySelector('.success-container');
-  let scoreCard = document.getElementById("score");
+  let scoreCard = document.getElementById('score');
   let totalScore = document.getElementById('total-score');
   if (count < 2) {
     if (this.dataset.imageId == 0) {
       moves++;
-      this.classList.toggle("flip");
+      this.classList.toggle('flip');
       this.dataset.imageId = 1;
       movesElement.textContent = `Moves: ${moves}`;
       if (count === 0) {
@@ -213,7 +213,7 @@ function handleCardClick() {
               firstClick.classList.remove('flip');
               secondClick.classList.remove('flip');
               count = 0;
-              secondClick = "";
+              secondClick = '';
             }, 1 * 1000);
           }
         }
