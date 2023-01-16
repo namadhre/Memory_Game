@@ -14,41 +14,105 @@ const QuestionMarkImagePath = 'gifs/images.png';
 
 const gameContainer = document.getElementById("game");
 const startButton = document.getElementById("start-button");
-let mainContainer = document.querySelector('.main-container');
+const mainContainer = document.querySelector('.main-container');
+const selectLevel = document.querySelector('.select-level');
+const easyButton = document.getElementById('easy-level');
+const mediumLevel = document.getElementById('medium-level');
+const hardLevel = document.getElementById('hard-level');
+
 
 function handleSrart(event) {
   event.target.parentElement.style.display = 'none';
-  mainContainer.style.display = 'flex';
+  selectLevel.style.display = 'flex';
 }
 
-startButton.addEventListener('click', handleSrart)
+startButton.addEventListener('click', handleSrart);
 
-const IMAGES = [
-  pathImage1,
-  pathImage1,
-  pathImage2,
-  pathImage2,
-  pathImage3,
-  pathImage3,
-  pathImage4,
-  pathImage4,
-  pathImage5,
-  pathImage5,
-  pathImage6,
-  pathImage6,
-  pathImage7,
-  pathImage7,
-  pathImage8,
-  pathImage8,
-  pathImage9,
-  pathImage9,
-  pathImage10,
-  pathImage10,
-  pathImage11,
-  pathImage11,
-  pathImage12,
-  pathImage12
-];
+function handleEasyLevel(event) {
+  event.target.parentElement.style.display = 'none';
+  mainContainer.style.display = 'flex';
+  IMAGES = [
+    pathImage1,
+    pathImage1,
+    pathImage2,
+    pathImage2,
+    pathImage3,
+    pathImage3,
+    pathImage4,
+    pathImage4,
+    pathImage5,
+    pathImage5,
+    pathImage6,
+    pathImage6
+  ]
+  let shuffledImages = shuffle(IMAGES);
+  createDivsForColors(shuffledImages);
+}
+
+easyButton.addEventListener('click', handleEasyLevel);
+
+function handleMediumLevel(event) {
+  event.target.parentElement.style.display = 'none';
+  mainContainer.style.display = 'flex';
+  const IMAGES = [
+    pathImage1,
+    pathImage1,
+    pathImage2,
+    pathImage2,
+    pathImage3,
+    pathImage3,
+    pathImage4,
+    pathImage4,
+    pathImage5,
+    pathImage5,
+    pathImage6,
+    pathImage6,
+    pathImage7,
+    pathImage7,
+    pathImage8,
+    pathImage8
+  ];
+  let shuffledImages = shuffle(IMAGES);
+  createDivsForColors(shuffledImages);
+}
+
+mediumLevel.addEventListener('click', handleMediumLevel);
+
+function handleHardLevel(event) {
+  event.target.parentElement.style.display = 'none';
+  mainContainer.style.display = 'flex';
+  const IMAGES = [
+    pathImage1,
+    pathImage1,
+    pathImage2,
+    pathImage2,
+    pathImage3,
+    pathImage3,
+    pathImage4,
+    pathImage4,
+    pathImage5,
+    pathImage5,
+    pathImage6,
+    pathImage6,
+    pathImage7,
+    pathImage7,
+    pathImage8,
+    pathImage8,
+    pathImage9,
+    pathImage9,
+    pathImage10,
+    pathImage10,
+    pathImage11,
+    pathImage11,
+    pathImage12,
+    pathImage12
+  ];
+  let shuffledImages = shuffle(IMAGES);
+  createDivsForColors(shuffledImages);
+}
+
+hardLevel.addEventListener('click', handleHardLevel);
+
 
 // here is a helper function to shuffle an array
 // it returns the same array with values shuffled
@@ -73,10 +137,6 @@ function shuffle(array) {
   return array;
 }
 
-
-
-let shuffledImages = shuffle(IMAGES);
-
 // this function loops over the array of colors
 // it creates a new div and gives it a class with the value of the color
 // it also adds an event listener for a click for each card
@@ -100,7 +160,7 @@ function createDivsForColors(imagesArray) {
     newDiv.classList.add(image.slice(0, 7).replace('/', '-').replace('.', ''));
     newDiv.classList.add("memory-card");
     newDiv.dataset.imageId = 0;
-    newDiv.append(forntFace, backFace)
+    newDiv.append(forntFace, backFace);
 
     // call a function handleCardClick when a div is clicked on
     newDiv.addEventListener("click", handleCardClick);
@@ -158,7 +218,7 @@ function handleCardClick() {
       if (success === 12) {
         mainContainer.style.display = 'none';
         successElement.style.display = 'block';
-        let finalScore = Math.round((success / (moves / 2)) * 100)
+        let finalScore = Math.round((success / (moves / 2)) * 100);
         totalScore.textContent = `Total Score: ${finalScore}`;
         let newHighScore = updateLocalStorage(finalScore);
         highScore.textContent = `High Score: ${newHighScore}`;
@@ -173,14 +233,10 @@ function updateLocalStorage(finalScore) {
     localStorage.setItem('high_score', finalScore);
     newHighScore = finalScore;
   } else {
-    newHighScore = localStorage.getItem('high_score')
+    newHighScore = localStorage.getItem('high_score');
     if (newHighScore < finalScore) {
       localStorage.setItem('high_score', newHighScore);
     }
   }
   return newHighScore;
 }
-
-// when the DOM loads
-createDivsForColors(shuffledImages);
-
