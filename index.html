@@ -14,11 +14,16 @@
 
 <body>
   <div class="body-container">
+    <div class="start-container">
+      <h1>Welcome to Memory Game !</h1>
+      <button id="start-button">Start Game</button>
+    </div>
     <div class="success-container">
       <div class="success-wrap-container">
         <h3>Game Over</h3>
         <h2 id="total-score"></h2>
-        <a href="./index.html"><button><i class="fa-solid fa-play"></i>Try again</button></a>
+        <h4 id="high-score"></h4>
+        <a href="index.html"><button><i class="fa-solid fa-play"></i>Try again</button></a>
       </div>
     </div>
     <div class="main-container">
@@ -27,6 +32,7 @@
         <div class="board-container">
           <h2 id="moves">Moves: 0</h2>
           <h2 id="score">Score: 0</h2>
+          <a href="index.html"><button>Restart</button></a>
         </div>
       </div>
       <div id="game" class="game-container">
