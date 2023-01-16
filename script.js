@@ -13,6 +13,15 @@ const pathImage12 = 'gifs/12.gif';
 const QuestionMarkImagePath = 'gifs/images.png';
 
 const gameContainer = document.getElementById("game");
+const startButton = document.getElementById("start-button");
+let mainContainer = document.querySelector('.main-container');
+
+function handleSrart(event) {
+  event.target.parentElement.style.display = 'none';
+  mainContainer.style.display = 'flex';
+}
+
+startButton.addEventListener('click', handleSrart)
 
 const IMAGES = [
   pathImage1,
@@ -90,7 +99,7 @@ function createDivsForColors(imagesArray) {
     // give it a class attribute for the value we are looping over
     newDiv.classList.add(image.slice(0, 7).replace('/', '-').replace('.', ''));
     newDiv.classList.add("memory-card");
-
+    newDiv.dataset.imageId = 0;
     newDiv.append(forntFace, backFace)
 
     // call a function handleCardClick when a div is clicked on
@@ -109,16 +118,16 @@ let moves = 0;
 let success = 0;
 
 function handleCardClick() {
+  let highScore = document.getElementById('high-score');
   let movesElement = document.getElementById("moves");
-  let mainContainer = document.querySelector('.main-container');
   let successElement = document.querySelector('.success-container');
   let scoreCard = document.getElementById("score");
   let totalScore = document.getElementById('total-score');
   if (count < 2) {
-    if (this.style.backgroundColor === "") {
+    if (this.dataset.imageId == 0) {
       moves++;
       this.classList.toggle("flip");
-      this.style.backgroundColor = 'white';
+      this.dataset.imageId = 1;
       movesElement.textContent = `Moves: ${moves}`;
       if (count === 0) {
         firstClick = this;
@@ -130,14 +139,13 @@ function handleCardClick() {
       if (secondClick) {
         if (firstClick.classList[0] === secondClick.classList[0]) {
           success++;
-          scoreCard.textContent = `Score: ${success}`;
           count = 0;
         } else {
-          firstClick.style.backgroundColor = 'white';
+          firstClick.dataset.imageId = 1;
           if (count === 2) {
             setTimeout(() => {
-              firstClick.style.backgroundColor = '';
-              secondClick.style.backgroundColor = '';
+              firstClick.dataset.imageId = 0;
+              secondClick.dataset.imageId = 0;
               firstClick.classList.remove('flip');
               secondClick.classList.remove('flip');
               count = 0;
@@ -146,15 +154,32 @@ function handleCardClick() {
           }
         }
       }
-      console.log(firstClick, secondClick);
+      scoreCard.textContent = `Score: ${Math.round((success / (moves / 2)) * 100)}`;
       if (success === 12) {
         mainContainer.style.display = 'none';
         successElement.style.display = 'block';
-        totalScore.textContent = `Total Score: ${success}`;
+        let finalScore = Math.round((success / (moves / 2)) * 100)
+        totalScore.textContent = `Total Score: ${finalScore}`;
+        let newHighScore = updateLocalStorage(finalScore);
+        highScore.textContent = `High Score: ${newHighScore}`;
+        console.log('hello')
       }
     }
   }
 }
 
+function updateLocalStorage(finalScore) {
+  if (localStorage.getItem('high_score') === null) {
+    localStorage.setItem('high_score', finalScore);
+  } else {
+    let highScore = localStorage.getItem('high_score')
+    if (highScore < finalScore) {
+      localStorage.setItem('high_score', finalScore)
+    }
+  }
+  return localStorage.getItem('high_score');
+}
+
 // when the DOM loads
 createDivsForColors(shuffledImages);
+
