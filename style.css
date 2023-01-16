@@ -42,6 +42,11 @@ body {
   font-size: 20px;
 }
 
+.success-container h4{
+  color: white;
+  margin: 1rem;
+}
+
 .board-container {
   width: 40%;
   display: flex;
@@ -69,8 +74,8 @@ body {
 }
 
 .memory-card {
-  width: calc(25% - 10px);
-  height: calc(14.666% - 10px);
+  min-width: calc(25% - 10px);
+  min-height: calc(14.666% - 10px);
   margin: 5px;
   position: relative;
   transform: scale(1);
@@ -178,6 +183,12 @@ h1 {
   }
   #reset{
       font-size: 15px;
+  }
+
+  #restart-game{
+    width: fit-content;
+    font-size: small;
+    height: fit-content;
   }
 
 }
