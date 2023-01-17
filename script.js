@@ -239,7 +239,8 @@ function updateLocalStorage(finalScore) {
   } else {
     newHighScore = localStorage.getItem('high_score');
     if (newHighScore < finalScore) {
-      localStorage.setItem('high_score', newHighScore);
+      localStorage.setItem('high_score', finalScore);
+      newHighScore = finalScore;
     }
   }
   return newHighScore;
